@@ -39,15 +39,11 @@
 - **Tools:** Git/GitHub, VS Code  
 
 ---
-
-## 📸 Screenshots  
-All project screenshots are stored in their respective `screenshots/` folders.  
-
 ---
 
 ## ✨ Author  
 **Pranav Dere**  
 - Python Developer | CodSoft Intern  
-- [LinkedIn](https://linkedin.com) | [GitHub](https://github.com)  
+- [LinkedIn](https://linkedin.com/pranavdere19) | [GitHub](https://github.com/pranavdere19/)  
 
 ---
