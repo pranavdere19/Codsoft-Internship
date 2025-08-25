@@ -1,6 +1,6 @@
 ---
 
-## 🚀 Tasks / Projects  
+## Tasks / Projects  
 
 ### 🔹 Task 1 – To-Do List Application  
 - **Description:** A task management app built with Python and Tkinter that allows users to add, update, delete, and track tasks efficiently.  
