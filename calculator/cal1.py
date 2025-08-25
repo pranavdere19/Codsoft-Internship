@@ -1,38 +1,59 @@
-# Simple Calculator in Python
+import tkinter as tk
+from tkinter import messagebox
 
-# Step 1: Take user input for two numbers
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
+# Function to update expression in the text entry
+def press(num):
+    entry_text.set(entry_text.get() + str(num))
 
-# Step 2: Show operation choices
-print("\nSelect operation:")
-print("1. Addition (+)")
-print("2. Subtraction (-)")
-print("3. Multiplication (*)")
-print("4. Division (/)")
+# Function to evaluate the final expression
+def equal_press():
+    try:
+        result = str(eval(entry_text.get()))
+        entry_text.set(result)
+    except ZeroDivisionError:
+        messagebox.showerror("Error", "Division by Zero is not allowed")
+        entry_text.set("")
+    except Exception:
+        messagebox.showerror("Error", "Invalid Input")
+        entry_text.set("")
 
-# Step 3: Take user's choice
-choice = input("Enter choice (1/2/3/4): ")
+# Function to clear the entry
+def clear():
+    entry_text.set("")
 
-# Step 4: Perform calculation
-if choice == '1':
-    result = num1 + num2
-    print(f"\n✅ Result: {num1} + {num2} = {result}")
+# GUI window
+root = tk.Tk()
+root.title("Simple Calculator")
+root.geometry("320x400")
+root.resizable(False, False)
 
-elif choice == '2':
-    result = num1 - num2
-    print(f"\n✅ Result: {num1} - {num2} = {result}")
+entry_text = tk.StringVar()
+entry_frame = tk.Entry(root, textvariable=entry_text, font=('Arial', 20), bd=10, relief=tk.RIDGE, justify='right')
+entry_frame.grid(row=0, column=0, columnspan=4, ipadx=8, ipady=10, pady=10)
 
-elif choice == '3':
-    result = num1 * num2
-    print(f"\n✅ Result: {num1} * {num2} = {result}")
+# Button layout
+buttons = [
+    ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
+    ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
+    ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
+    ('0', 4, 0), ('.', 4, 1), ('+', 4, 2), ('=', 4, 3),
+]
 
-elif choice == '4':
-    if num2 != 0:  # Prevent division by zero
-        result = num1 / num2
-        print(f"\n✅ Result: {num1} / {num2} = {result}")
+for (text, row, col) in buttons:
+    if text == '=':
+        btn = tk.Button(root, text=text, fg="white", bg="green",
+                        font=('Arial', 15, 'bold'), bd=5, width=5, height=2,
+                        command=equal_press)
     else:
-        print("\n❌ Error: Division by zero is not allowed!")
+        btn = tk.Button(root, text=text, fg="black", bg="lightgray",
+                        font=('Arial', 15, 'bold'), bd=5, width=5, height=2,
+                        command=lambda t=text: press(t))
+    btn.grid(row=row, column=col, padx=5, pady=5)
 
-else:
-    print("\n❌ Invalid choice! Please select 1, 2, 3, or 4.")
+# Clear button
+clear_btn = tk.Button(root, text='C', fg="white", bg="red",
+                      font=('Arial', 15, 'bold'), bd=5, width=23, height=2,
+                      command=clear)
+clear_btn.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
+
+root.mainloop()
