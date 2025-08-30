@@ -1,6 +1,4 @@
----
 
-## 📝 Tasks Overview
 ### ✅ Task 2: Calculator  
 - **Description**: A simple calculator application to perform basic arithmetic operations.  
 - **Tech Stack**: Python (Tkinter for GUI)  
