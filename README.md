@@ -1,3 +1,12 @@
+### ✅ Task 1: To-Do List App  
+- **Description**: A GUI-based To-Do List to manage daily tasks.  
+- **Tech Stack**: Python, Tkinter  
+- **Features**:  
+  - Add, Update, and Delete tasks  
+  - Save tasks locally for later use  
+
+---
+
 
 ### ✅ Task 2: Calculator  
 - **Description**: A simple calculator application to perform basic arithmetic operations.  
