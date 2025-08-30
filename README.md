@@ -30,5 +30,5 @@
 
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/pranavdere19/codsoft-internship.git
+   git clone https://github.com/pranavdere19/Codsoft-Internship.git
 
